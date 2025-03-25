@@ -21,10 +21,20 @@ public class Equipo {
      * @param p El objeto Personal a añadir
      */
     public void añadirMiembro(Personal p) {
+    	boolean esta = false;
         if (p == null) {
             throw new IllegalArgumentException("El miembro no puede ser nulo.");
         }
+        for (int i = 0; i < miembros.size(); i++) {
+        if (p.getDni()==miembros.get(i).getDni()) {
+        	esta = true;
+        }
+        }
+        if (!esta) {
         miembros.add(p);
+        }else {
+        	throw new IllegalArgumentException("No se pueden crear miembros repetidos.");
+        }
     }
 
     /**
