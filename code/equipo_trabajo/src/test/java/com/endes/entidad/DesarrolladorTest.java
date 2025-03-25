@@ -72,4 +72,36 @@ private Desarrollador desarrollador;
 		double resultado = desarrollador.calcularProductividad();
 		assertEquals(productividad, resultado, "Resultado inesperado");
 	}
+	
+	@Test
+	@DisplayName("Prueba del set de lenguaje null")
+	void testErrorLenguaje () {
+		Exception excepcion = assertThrows(IllegalArgumentException.class, ()->desarrollador.setLenguajePrincipal(null));
+		String mensajeEsperado = "El lenguaje principal no puede ser nulo ni vacío.";
+		assertEquals(mensajeEsperado, excepcion.getMessage());
+	}
+	
+	@Test
+	@DisplayName("Prueba del set de dni null")
+	void testErrorDni () {
+		Exception excepcion = assertThrows(IllegalArgumentException.class, ()->desarrollador.setDni(null));
+		String mensajeEsperado = "DNI no válido.";
+		assertEquals(mensajeEsperado, excepcion.getMessage());
+	}
+	
+	@Test
+	@DisplayName("Prueba del set de nombre null")
+	void testErrorNombre () {
+		Exception excepcion = assertThrows(IllegalArgumentException.class, ()->desarrollador.setNombre(null));
+		String mensajeEsperado = "Nombre no válido.";
+		assertEquals(mensajeEsperado, excepcion.getMessage());
+	}
+	
+	@Test
+	@DisplayName("Prueba del set de sueldo negativo")
+	void testErrorSueldo () {
+		Exception excepcion = assertThrows(IllegalArgumentException.class, ()->desarrollador.setSueldoBase(-10));
+		String mensajeEsperado = "El sueldo base no puede ser negativo.";
+		assertEquals(mensajeEsperado, excepcion.getMessage());
+	}
 }
