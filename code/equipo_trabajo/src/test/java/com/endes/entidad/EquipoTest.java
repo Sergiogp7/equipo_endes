@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
@@ -70,7 +73,14 @@ class EquipoTest {
     @Test
     @DisplayName("Listar las productividades del equipo")
     void testListarProductividades() {
-        // Tu código aquí
+        Desarrollador d1 = new Desarrollador ("782506661Z", "Matias", 2000, "Java");
+        Desarrollador d2 = new Desarrollador ("782506662A", "Sara", 1000, "C++");
+        equipo.añadirMiembro(d1);
+        equipo.añadirMiembro(d2);
+        List<Double> productividades = new ArrayList<>();
+        productividades.add(2200.0);
+        productividades.add(1000.0);
+        assertEquals(productividades, equipo.listarProductividades(), "No se calcula bien la productividad del equipo");
     }
     /**
      * Verifica que un equipo nuevo se inicializa con la lista de miembros vacía.
