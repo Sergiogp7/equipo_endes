@@ -67,13 +67,11 @@ class EquipoTest {
      * - Comprueba que la lista tiene el tamaño correcto.
      * - Verifica que los valores de productividad son los esperados.
      */
-    /*
     @Test
     @DisplayName("Listar las productividades del equipo")
     void testListarProductividades() {
         // Tu código aquí
     }
-    */
     /**
      * Verifica que un equipo nuevo se inicializa con la lista de miembros vacía.
      */
@@ -88,10 +86,11 @@ class EquipoTest {
      * Verifica que no se puede añadir un miembro null al equipo.
      * Debe lanzarse IllegalArgumentException con el mensaje adecuado.
      */
-    /*  @Test
+    @Test
     @DisplayName("No se permite añadir un miembro null al equipo")
     void testAñadirMiembroNull() {
-          // Tu código aquí
+    		Exception excepcion = assertThrows(IllegalArgumentException.class, ()->equipo.añadirMiembro(null));
+    		String mensajeEsperado = "El miembro no puede ser nulo.";
+    		assertEquals(mensajeEsperado, excepcion.getMessage());
     }
-    */
 }
